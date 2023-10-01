@@ -18,13 +18,9 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var resultLabel: UILabel!
     
-    
     let loginValidType: String.ValidTypes = .login
     let passwordOneValidType: String.ValidTypes = .passwordOne
     let passwordTwoValidType: String.ValidTypes = .passwordTwo
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +28,6 @@ class ViewController: UIViewController {
         loginTextField.delegate = self
         passwordOneTextField.delegate = self
         passwordTwoTextField.delegate = self
-    
-        
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
@@ -82,9 +76,6 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITextFieldDelegate {
-    
-    
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         switch textField {
@@ -142,7 +133,6 @@ extension String {
         case .login: regex = Regex.login.rawValue
         case .passwordOne: regex = Regex.passwordOne.rawValue
         case .passwordTwo: regex = Regex.passwordTwo.rawValue
-            
         }
         return NSPredicate(format: format, regex).evaluate(with: self)
     }
